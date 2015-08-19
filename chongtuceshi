@@ -1,0 +1,56 @@
+# Script Name	: backup_automater_services.py
+# Author			: Craig Richards
+# Created			: 24th October 2012
+# Last Modified	:
+# Version			: 1.0
+
+# Modifications	: 
+
+# Description		: This will go through and backup all my automator services workflows
+
+import shutil							# Load the library module
+import datetime						# Load the library module
+import os								# Load the library module
+
+today=datetime.date.today()	# Get Today's date
+todaystr=today.isoformat()		# Format it so we can use the format to create the directory
+
+confdir=os.getenv("my_config")					# Set the variable by getting the value from the OS setting
+dropbox=os.getenv("dropbox") 					# Set the variable by getting the value from the OS setting
+conffile = ('services.conf') 							# Set the variable as the name of the configuration file
+conffilename=os.path.join(confdir, conffile)  	# Set the variable by combining the path and the file name
+sourcedir=os.path.expanduser('~/Library/Services/')													# Source directory of where the scripts are located
+destdir=os.path.join(dropbox, "My_backups"+"/"+"Automater_services"+todaystr+"/") # Combine several settings to create the destination backup directory
+
+for file_name in open(conffilename): 									# Walk through the configuration file
+  fname = file_name.strip()													# Strip out the blank lines from the configuration file
+  if fname:				# Script Name		: batch_file_rename.py
+# Author				: Craig Richards
+# Created				: 6th August 2012
+# Last Modified		: 
+# Version				: 1.0
+
+# Modifications		: 
+
+# Description			: This will batch rename a group of files in a given directory, once you pass the current and new extensions
+
+import os															# Load the library module
+import sys															# Load the library module
+
+work_dir=sys.argv[1]											# Set the variable work_dir with the first argument passed
+old_ext=sys.argv[2]											# Set the variable work_dir with the first argument passed
+new_ext=sys.argv[3]											# Set the variable work_dir with the first argument passed
+
+files = os.listdir(work_dir)									# Set the variable files, by listing everything in the directory 
+for filename in files:											# Loop through the files
+  file_ext = os.path.splitext(filename)[1]				# Get the file extension
+  if old_ext == file_ext:										# Start of the logic to check the file extensions, if old_ext = file_ext
+    newfile = filename.replace(old_ext, new_ext)	# Set newfile to be the filename, replaced with the new extension
+    os.rename(													# Write the files
+	    os.path.join(work_dir, filename),
+		os.path.join(work_dir, newfile))															# For the lines that are not blank
+    sourcefile=os.path.join(sourcedir, file_name.strip())			# Get the name of the source files to backup
+    destfile=os.path.join(destdir, file_name.strip()) 					# Get the name of the destination file names
+    shutil.copytree(sourcefile, destfile)									# Copy the directories
+
+i
