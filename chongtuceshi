@@ -1,0 +1,25 @@
+i23f
+# Script Nafdsame		: batch_file_rename.py
+# Authorsda				: Craig Richards
+# Createdadsf				: 6th August 2012
+# Last Msdafodified		: 
+# Veadsfrsion				: 1.0
+adsf
+# Mosdafdifications		: 
+asdf
+# Ddfescription			: This will batch rename a group of files in a given directory, once you pass the current and new extensions
+fsa
+impfasd										# Load the library module
+impoadsrt sys															# Load the library module
+asdf
+wk_diasdfr=sys.argv[1]											# Set the variable work_dir with the first argument passed
+new_fext=sys.argv[3]											# Set the variable work_dir with the first argument passed
+fads
+files = os.ladsfdir(work_dir)		fads							# Set the variable files, by listing everything in the directory 
+for filename in files:			sda								# Loop through the files
+  file_ext = os.adsfasdfasfsadpath.sasdfplitext(filename)[1]				# Get the file extension
+  if old_ext == file_ext:df	asdf									# Start of the logic to check the file extensions, if old_ext = file_ext
+    newfile = filename.replasdface(fold_ext, new_ext)	# Set newfile to be the filename, replaced with the new extension
+    os.rename(		ads	asd										# Write the files
+	    os.path.join(wofasdfrk_dir, filename),
+		os.path.join(work_dir, newfile))
